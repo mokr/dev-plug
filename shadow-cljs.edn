@@ -1,0 +1,17 @@
+{:nrepl {:port 9002}
+ :builds
+        {:app
+               {:target     :browser
+                :output-dir "target/cljsbuild/public/js"
+                :asset-path "/js"
+                :modules    {:app {:entries [dev-plug.app]}}
+                :devtools   {:watch-dir "resources/public"
+                             :preloads  [re-frisk.preload]}
+                :dev        {:closure-defines {"re_frame.trace.trace_enabled_QMARK_" true}}
+                :release    {}}
+         :test {:target  :node-test, :output-to "target/test/test.js"
+                :autorun true}}
+ ;:lein  {:profile "+dev"}
+ :deps  {:aliases [:cljs]}
+
+ }
