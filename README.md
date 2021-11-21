@@ -10,7 +10,15 @@ Status:
 
 # DEVELOPMENT
 
-Prerequisites are located in the "General" section at the bottom
+### Prerequisites
+
+    npm install         # once + after updates to package.json
+    brew install clojure/tools/clojure
+    npm install -g shadow-cljs
+
+#### In a :root/local lein project with changed dependencies
+
+    lein pom
 
 ### Terminals
 
@@ -39,19 +47,6 @@ Port | Description    | Notes
 _Note: On other ports than Luminus typically uses to be able to run alongside one_
 
 # GENERAL
-
-### Prerequisites
-
-#### First time (mostly)
-
-NPM packages:
-
-    npm install       # + after updates to package.json
-
-Clojure and shadow-cljs:
-
-    brew install clojure/tools/clojure
-    npm install -g shadow-cljs
 
 generated using Luminus version "4.19"
 
