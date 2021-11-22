@@ -20,8 +20,9 @@
            mount/mount                           {:mvn/version "0.1.16"}
            ;net.clojars.mokr/plug-sso             {:mvn/version "0.1.0-SNAPSHOT"}
            ;net.clojars.mokr/plug-fetch           {:mvn/version "0.1.0-SNAPSHOT"}
-           ;net.clojars.mokr/plug-utils           {:mvn/version "0.1.0-SNAPSHOT"}
+           net.clojars.mokr/plug-utils           {:local/root "../plug-utils"}
            net.clojars.mokr/plug-link            {:local/root "../plug-link"}
+           net.clojars.mokr/plug-pagination      {:local/root "../plug-pagination"}
            nrepl/nrepl                           {:mvn/version "0.8.3"}
            org.clojure/clojure                   {:mvn/version "1.10.3"}
            org.clojure/clojurescript             {:mvn/version "1.10.891"} ; :scope "provided"
