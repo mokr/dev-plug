@@ -10,7 +10,7 @@
 (rf/reg-sub
   ::unpaginated-content
   (fn []
-    (->> (range 100)
+    (->> (range 1000)
          (map (fn [v]
                 {:id    v
                  :value (str v)}))
