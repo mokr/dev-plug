@@ -9,6 +9,7 @@
     [markdown.core :refer [md->html]]
     [dev-plug.ajax :as ajax]
     [dev-plug.events]
+    [dev-plug.topics.fetch.core :as fetch]
     [dev-plug.topics.pagination.ui :as pagination]
     [plug-link.core :as link]
     [plug-link.re-frame]
@@ -37,6 +38,7 @@
                 {:class (when @expanded? :is-active)}
                 [:div.navbar-start
                  [nav-link "#/" "Home" :home]
+                 [nav-link "#/fetch" "Fetch" :fetch]
                  [nav-link "#/pagination" "Pagination" :pagination]
                  [nav-link "#/about" "About" :about]]]]))
 
@@ -55,8 +57,10 @@
      [navbar]
      [page]]))
 
+
 (defn navigate! [match _]
   (rf/dispatch [:common/navigate match]))
+
 
 (def router
   (reitit/router
@@ -65,8 +69,11 @@
            :controllers [{:start (fn [_] (rf/dispatch [:page/init-home]))}]}]
      ["/about" {:name :about
                 :view #'about-page}]
+     ["/fetch" {:name :fetch
+                :view #'fetch/page}]
      ["/pagination" {:name :pagination
                      :view #'pagination/page}]]))
+
 
 (defn start-router! []
   (rfe/start!

@@ -3,7 +3,8 @@
     [re-frame.core :as rf]
     [ajax.core :as ajax]
     [reitit.frontend.easy :as rfe]
-    [reitit.frontend.controllers :as rfc]))
+    [reitit.frontend.controllers :as rfc]
+    [taoensso.timbre :as log]))
 
 ;;dispatchers
 
@@ -26,9 +27,10 @@
     {:common/navigate-fx! [url-key params query]}))
 
 (rf/reg-event-db
-  :common/set-error
+  :reg/error
   (fn [db [_ error]]
-    (assoc db :common/error error)))
+    (log/error error)
+    (assoc db :reg/error error)))
 
 (rf/reg-event-fx
   :page/init-home
@@ -55,6 +57,8 @@
     (-> route :data :view)))
 
 (rf/reg-sub
-  :common/error
+  :reg/error
   (fn [db _]
-    (:common/error db)))
+    (:reg/error db)))
+
+
