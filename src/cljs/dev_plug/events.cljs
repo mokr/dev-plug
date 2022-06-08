@@ -26,11 +26,11 @@
   (fn [_ [_ url-key params query]]
     {:common/navigate-fx! [url-key params query]}))
 
-(rf/reg-event-db
-  :reg/error
-  (fn [db [_ error]]
-    (log/error error)
-    (assoc db :reg/error error)))
+;(rf/reg-event-db
+;  :reg/error
+;  (fn [db [_ error]]
+;    (log/error error)
+;    (assoc db :reg/error error)))
 
 (rf/reg-event-fx
   :page/init-home

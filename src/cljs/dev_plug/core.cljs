@@ -11,8 +11,11 @@
     [dev-plug.events]
     [dev-plug.topics.fetch.core :as fetch]
     [dev-plug.topics.pagination.ui :as pagination]
+    [dev-plug.topics.ui.core :as ui]
     [plug-link.core :as link]
     [plug-link.re-frame]
+    [plug-ui.bulma.notifications :as notifications]
+    [plug-utils.reagent :as ur]
     [reitit.core :as reitit]
     [reitit.frontend.easy :as rfe]
     [clojure.string :as string])
@@ -39,6 +42,7 @@
                 [:div.navbar-start
                  [nav-link "#/" "Home" :home]
                  [nav-link "#/fetch" "Fetch" :fetch]
+                 [nav-link "#/ui" "UI" :ui]
                  [nav-link "#/pagination" "Pagination" :pagination]
                  [nav-link "#/about" "About" :about]]]]))
 
@@ -52,8 +56,10 @@
    ])
 
 (defn page []
-  (if-let [page @(rf/subscribe [:common/page])]
+  (when-let [page @(rf/subscribe [:common/page])]
     [:div
+     ;[ur/err-boundary [notifications/panel :style {:top "50px"}]] ;; Note: The :style part is optional, but allows adjusting placement
+     [ur/err-boundary [notifications/panel]]
      [navbar]
      [page]]))
 
@@ -72,7 +78,9 @@
      ["/fetch" {:name :fetch
                 :view #'fetch/page}]
      ["/pagination" {:name :pagination
-                     :view #'pagination/page}]]))
+                     :view #'pagination/page}]
+     ["/ui" {:name :ui
+             :view #'ui/page}]]))
 
 
 (defn start-router! []

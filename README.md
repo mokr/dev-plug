@@ -8,6 +8,17 @@ Status:
 * Experimental
 * Work in progress
 
+# GOTCHAS
+
+### "Errors during project resolution" (when using :local/root)
+
+> The following errors were found during project resolve:
+> /Users/mokr/code/opensource/dev-plug/deps.edn:
+> Manifest type not detected when finding deps for net.clojars.mokr/plug-ui
+> in coordinate {:local/root "/Users/mokr/code/opensource/plug-ui"}
+
+**Remedy:** Run `lein pom` in the `:local/root` project it complains about (`plug-ui` in example above)
+
 # DEVELOPMENT
 
 ### Prerequisites

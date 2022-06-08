@@ -21,6 +21,7 @@
            ;net.clojars.mokr/plug-sso             {:mvn/version "0.1.0-SNAPSHOT"}
            net.clojars.mokr/plug-fetch           {:local/root "../plug-fetch"}
            net.clojars.mokr/plug-utils           {:local/root "../plug-utils"}
+           net.clojars.mokr/plug-ui              {:local/root "../plug-ui"}
            net.clojars.mokr/plug-link            {:local/root "../plug-link"}
            net.clojars.mokr/plug-pagination      {:local/root "../plug-pagination"}
            nrepl/nrepl                           {:mvn/version "0.9.0"}
